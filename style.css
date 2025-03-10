@@ -1,0 +1,260 @@
+/* 기본 설정 */
+* {
+    box-sizing: border-box; /* 요소의 크기를 padding과 border까지 포함하여 계산 */
+    margin: 0; /* 기본 마진 제거 */
+    padding: 0; /* 기본 패딩 제거 */
+}
+
+/* 전체 레이아웃 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* 가독성을 위한 줄 간격 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+html {
+    scroll-behavior: smooth; /* 부드럽게 스크롤 이동 */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: white; /* 글자 색상 흰색 */
+    text-align: center; /* 텍스트를 가운데 정렬 */
+    margin-top: 1rem; /* 위쪽 여백 추가 (필요에 따라 조정) */
+}
+
+/* 프로필 헤더 */
+.profile-header {
+    text-align: center; /* 가운데 정렬 */
+    margin: 40px 0; /* 위아래 마진 추가 */
+}
+
+.profile-photo {
+    border: 3px solid #ffd700; /* 프로필 테두리 강조 */
+    width: 200px; /* 프로필 사진 크기 설정 */
+    height: 200px; /* 정사각형 유지 */
+    border-radius: 50%; /* 원형 프로필 */
+    object-fit: cover; /* 이미지가 잘리지 않고 꽉 차도록 */
+    margin: 10px 0; /* 위아래 마진 추가 */
+}
+
+.profile-header h1 {
+    font-size: 2.5rem; /* 큰 제목 크기 설정 */
+    margin: 0; /* 기본 마진 제거 */
+    color: white; /* 글자 색상 흰색 */
+}
+
+.profile-header span {
+    font-size: 1.8rem; /* 강조된 텍스트 크기 설정 */
+    color: #007bff; /* 파란색 강조 */
+}
+
+.profile-header p {
+    margin: 10px 0 30px; /* 위/아래 마진 설정 */
+    color: white; /* 글자 색상 흰색 */
+    font-size: 1.2rem; /* 글자 크기 설정 */
+}
+
+/* 숨겨진 체크박스 (버튼 역할) */
+#menu-toggle {
+    display: none;
+}
+
+/* 메뉴 버튼 스타일 */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: 2px solid grey; /* 골드 색 테두리 추가 */
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+    transition: 0.3s;
+    z-index: 1001;
+}
+
+.menu-btn:hover {
+    background-color: #444;
+    transform: scale(1.05); /* 살짝 확대 효과 */
+}
+
+/* 메뉴 컨테이너 (초기 상태: 숨김) */
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: -170px; /* 화면 밖으로 숨김 */
+    width: 170px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding-top: 60px;
+    text-align: left;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+}
+
+/* 체크박스가 체크되었을 때 메뉴 표시 */
+#menu-toggle:checked ~ .menu-container {
+    left: 0; /* 화면 안으로 들어옴 */
+}
+
+/* 드롭다운 메뉴 항상 표시 */
+.dropdown-content {
+    display: flex; /* Flexbox 적용 */
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    height: 100%; /* 부모 높이 꽉 차게 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.dropdown-content a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: grey;
+}
+
+/* 섹션 스타일 */
+section {
+    padding: 100px 20px;
+}
+
+/* 컨텐츠 영역 (블로그 스타일) */
+.container {
+    max-width: 900px;
+    margin: 40px auto; /* 가운데 정렬 */
+    padding: 20px;
+}
+
+.content-img {
+    max-width: 100%; /* 컨테이너보다 커지지 않도록 제한 */
+    width: auto; /* 원본 비율 유지 */
+    height: auto; /* 원본 비율 유지 */
+    display: block; /* 블록 요소로 배치 */
+    margin: 20px auto; /* 가운데 정렬 */
+    border-radius: 12px; /* 둥근 모서리 적용 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    image-rendering: auto; /* 브라우저 최적화 */
+}
+
+.card-container {
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* 화면이 작아지면 자동 줄바꿈 */
+}
+
+.project-card {
+    background: #333;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 0px auto;
+    max-width: 700px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* 마우스 올리면 살짝 올라가는 효과 */
+}
+
+.project-card p {
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+} 
+
+
+.hobby-card {
+    background: #2e2e2e; /* 더 부드러운 색감 */
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* 그림자 강화 */
+    max-width: 600px; /* 반응형 조정 */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.hobby-card:hover {
+    transform: translateY(-8px); /* 더 부드러운 hover 효과 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* hover 시 그림자 강화 */
+}
+
+.hobby-card img {
+    width: 100%; /* 카드 너비에 맞게 조정 */
+    border-radius: 12px; /* 둥근 모서리 */
+}
+
+.hobby-card h3 {
+    font-size: 18px;
+    color: #f8f8f8;
+    margin-top: 10px;
+}
+
+.hobby-card p {
+    margin-bottom: 0px;
+} 
+
+/* 제목 스타일 */
+h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #ffd700; /* 노란색 밑줄 */
+    padding-bottom: 5px;
+    width: 80%; /* 밑줄 길이를 조절 */
+}
+
+/* 본문 텍스트 */
+p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* 리스트 스타일 */
+ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    font-size: 1.5rem;
+    padding: 5px 0;
+    list-style: none; /* 기본 리스트 불릿 제거 */
+}
+
+/* 링크 스타일 */
+.container a {
+    color: #ffd700;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.container a:hover {
+    color: blue;
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+}
+
+.seperator {
+    width: 70%; 
+    height: 3px; 
+    background-color: gray; 
+    margin: 20px auto;
+}
