@@ -130,13 +130,13 @@ h1 {
 
 /* 섹션 스타일 */
 section {
-    padding: 100px 20px;
+    padding: 80px 20px;
 }
 
 /* 컨텐츠 영역 (블로그 스타일) */
 .container {
     max-width: 900px;
-    margin: 40px auto; /* 가운데 정렬 */
+    margin: 40px auto; /* 가운데 정렬 */ 
     padding: 20px;
 }
 
@@ -155,7 +155,7 @@ section {
     display: grid;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* 화면이 작아지면 자동 줄바꿈 */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
 }
 
 .project-card {
@@ -164,7 +164,6 @@ section {
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     margin: 0px auto;
-    max-width: 700px;
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -178,14 +177,18 @@ section {
     margin-bottom: 0px;
 } 
 
+.hobby-container {
+    text-align: center; 
+}
 
 .hobby-card {
+    display: inline-block;
     background: #2e2e2e; /* 더 부드러운 색감 */
-    padding: 15px;
+    padding: 20px;
     border-radius: 16px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* 그림자 강화 */
     max-width: 600px; /* 반응형 조정 */
-    text-align: center;
+    margin: 5px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
 }
